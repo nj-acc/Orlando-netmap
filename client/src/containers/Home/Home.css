@@ -11,3 +11,13 @@
 .ShowArticlesButton {
     box-shadow: 3px 3px #547393;
 }
+.top-card{
+   padding-top: 30px;
+   font-weight: 700;
+   font-size: 21px;
+}
+.top-card-text{
+    color: #a70b7f;
+    height: 300px;
+    vertical-align: middle;
+}

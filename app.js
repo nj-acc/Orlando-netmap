@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
 
-const articles = require('./routes/articlesRoute.js');
-const users = require('./routes/usersRoute.js');
+const map = require('./routes/map.js');
 const config = require('./config.js');
 
 const MONGODB_URI = config.mongodburi || 'mongodb://localhost/basic-mern-app';
@@ -41,8 +40,7 @@ app.use((req, res, next) => {
      next();
 });
 
-app.use('/api/articles', articles);
-app.use('/api/users', users);
+app.use('/api/map', map);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'));

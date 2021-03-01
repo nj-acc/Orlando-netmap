@@ -13,19 +13,19 @@ const options = data => {
 
 export const checkUserUniqueness = ({ field, value }) => {
     return dispatch => {
-        return fetch('/api/users/validate', options({ field, value }))
+        return fetch('http://localhost:5000/api/users/validate', options({ field, value }))
     }
 }
 
 export const userSignupRequest = (userSignupDetails) => {
     return dispatch => {
-        return fetch('/api/users/signup', options(userSignupDetails))
+        return fetch('http://localhost:5000/api/users/signup', options(userSignupDetails))
     }
 }
 
 export const userLoginRequest = (userLoginDetails) => {
     return dispatch => {
-        return fetch('/api/users/login', options(userLoginDetails))
+        return fetch('http://localhost:5000/api/users/login', options(userLoginDetails))
         .then(res => res.json())
         .then(res => {
             if (res.success) {
