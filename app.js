@@ -7,10 +7,9 @@ require('dotenv').config();
 const map = require('./routes/map.js');
 const config = require('./config.js');
 
-const MONGODB_URI = config.mongodburi || 'mongodb://localhost/basic-mern-app';
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost:27017/basic-mern-app', {
+mongoose.connect('mongodb+srv://pancy:Digitaldivide@1@netspeed.7vyjq.mongodb.net/netspeed?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
