@@ -8,27 +8,27 @@ const MapSchema = mongoose.Schema({
         required: true
     },
     NeighID: {
-        type: String,
+        type: Number,
         required: true
     },
     avg_d_kbps: {
-        type: String,
+        type: Number,
         required: true
     },
     avg_u_kbps: {
-        type: String,
+        type: Number,
         required: true
     },
     avg_lat_ms: {
-        type: String,
+        type: Number,
         required: true
     },
     devices: {
-        type: String,
+        type: Number,
         required: true
     },
     tests: {
-        type: String,
+        type: Number,
         required: true,
     },
     quadkey: {
