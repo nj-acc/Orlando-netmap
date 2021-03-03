@@ -1,0 +1,190 @@
+/* COLORS */
+$bg-color: #052338;
+$white: #fff;
+$primary-color: #00C2FF;
+$secondary-color: #FFD774;
+$tertiary-color: #FF6B5A;
+
+.Svg {
+  background: $bg-color;
+  box-sizing: border-box;
+  height: 82vh;
+  padding: 5%;
+  width: 100vw;
+}
+
+.polygon {
+  fill: none;
+  stroke: $primary-color;
+  stroke-width: 2;
+}
+
+.circle {
+  fill: $bg-color;
+  stroke: $secondary-color;
+  stroke-width: 2;
+}
+
+.App-line {
+  opacity: .8;
+  stroke: $secondary-color;
+}
+
+.App-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.Controls {
+  padding: 0 1rem;
+}
+
+.Controls-slider-wrap {
+  align-items: center;
+  display: flex;
+  margin: 2rem 0;
+}
+
+.Controls-slider-label {
+  flex: 0 0 50px;
+  font-size: 1.35rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Checkbox */
+.Checkbox--checkbox {
+  display: none;
+}
+
+.Checkbox--label {
+  cursor: pointer;
+  border: 1px solid $tertiary-color;
+  font-size: .85rem;
+  padding: 0.3rem 1rem;
+  
+  .Checkbox:not(:first-of-type) & {
+    border-left: none;
+  }
+
+  .Checkbox--checkbox:checked + & {
+    background: $tertiary-color;
+  }
+  
+  .Checkbox:focus &,
+  .Checkbox:hover & {
+    opacity: 0.8;
+  }
+}
+
+/* Adapted from
+https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+$track-color: rgba(255, 255, 255, .1);
+$thumb-color: $bg-color;
+
+$thumb-radius: 100%;
+$thumb-height: 30px;
+$thumb-width: 30px;
+$thumb-border-width: 3px;
+$thumb-border-color: $primary-color;
+
+$track-width: 100%;
+$track-height: 2px;
+$track-border-width: 3px;
+$track-border-color: none;
+
+$track-radius: 0;
+$contrast: 100%;
+
+@mixin track() {
+  cursor: pointer;
+  height: $track-height;
+  width: $track-width;
+}
+
+@mixin thumb() {
+  background: $thumb-color;
+  border: $thumb-border-width solid $thumb-border-color;
+  border-radius: $thumb-radius;
+  cursor: pointer;
+  height: $thumb-height;
+  position: relative;
+  top: $thumb-radius; // Centering the thumb
+  width: $thumb-width;
+  
+  &:focus,
+  &:hover {
+    background: $secondary-color;
+  }
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 0;
+  width: $track-width;
+  
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track();
+    background: $track-color;
+    border-radius: $track-radius;
+    border: $track-border-width solid $track-border-color;
+  }
+  
+  &::-webkit-slider-thumb {
+    @include thumb();
+    margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+    transition: all 100ms ease-in-out;
+    -webkit-appearance: none;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: $track-color;
+  }
+
+  &::-moz-range-track {
+    @include track();
+    background: $track-color;
+    border-radius: $track-radius;
+     border: $track-border-width solid $track-border-color;
+  }
+  
+  &::-moz-range-thumb {
+     @include thumb();
+  }
+
+  &::-ms-track {
+    @include track(); 
+    background: transparent;
+    border-color: transparent;
+    border-width: $thumb-width 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius*2;
+  }
+  
+  &::-ms-fill-upper {
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius*2;
+  }
+  
+  &::-ms-thumb {
+    @include thumb();
+  }
+  
+  &:focus::-ms-fill-lower {
+    background: $track-color;
+  }
+  
+  &:focus::-ms-fill-upper {
+    background: $track-color;
+  }
+}
