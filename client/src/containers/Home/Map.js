@@ -4,7 +4,7 @@ import {
     serverUrl
 } from '../../config';
 import CustomCanvas from "./canvas"
-import Background from "../../assets/background.png"
+// import Background from "../../assets/background.png"
 
 const Map = () => {
     let [mapData, setMapData] = useState([])
