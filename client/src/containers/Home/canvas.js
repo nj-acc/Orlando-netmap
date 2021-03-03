@@ -1,30 +1,23 @@
 import React from 'react'
 import './canvas.scss'
-import mapData from './map.json'
+import {paths as map_paths } from './svg'
 
 
-const Polygon = ({
-    points
-}) => {
-    const poinstData = points.join(' ');
+
+function RenderSvg () {
 
     return (
-        <polygon className='polygon' points={poinstData} />
-    )
-}
-
-function RenderSvg ({data}) {
-    data = mapData
-
-    return (
-        <svg
-            className='Svg'
-            viewBox={`0 0 ${100} ${100}`}
-            xmlns='http://www.w3.org/2000/svg'
-        >
-            {data.length > 0 && data.map((elt) => {
-                return <Polygon points={elt.geometry.coordinates[0]} />
-            })}
+        <svg  version="1.1" id="Layer_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" pointer-events="none" class="leaflet-zoom-animated" width="708" height="720" viewBox="35 -104 708 720" style="transform: translate3d(35px, -104px, 0px);">
+            <g>
+                {
+                    map_paths.map((elt, index) => {
+                        elt.content.key = index
+                        return elt.content
+                    })
+                }
+            </g>
         </svg>
     )
 }
